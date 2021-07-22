@@ -19,7 +19,6 @@ import br.com.mayki.APIAlurachallengebackend.Utilitario.Erros.ExceptionCampoInva
 @RestControllerAdvice
 public class TrataErro {
 	
-	private Map<String, String> erros = new HashMap<String, String>();
 	
 	@Autowired
 	MessageSource messageSource;
@@ -27,20 +26,23 @@ public class TrataErro {
 	
 	@ExceptionHandler(ExceptionCampoInvalido.class)
 	public ResponseEntity<?> trataExceptionCampoInvalido(ExceptionCampoInvalido e){
-		this.erros = Map.of("erro", e.getMessage());
+		Map<String, String> erros = new HashMap<String, String>();
 		
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.erros);
+		erros = Map.of("erro", e.getMessage());
+		
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erros);
 	}
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<?> trataMethodArgumentNotValidException(MethodArgumentNotValidException e){
+		Map<String, String> erros = new HashMap<String, String>();
 		
 		List<FieldError> fieldErrors = e.getFieldErrors();
 		fieldErrors.forEach(itemErro -> {
-			this.erros.put(itemErro.getField(), messageSource.getMessage(itemErro, LocaleContextHolder.getLocale()));
+			erros.put(itemErro.getField(), messageSource.getMessage(itemErro, LocaleContextHolder.getLocale()));
 		});
 		System.out.println("tratei erro");
-		return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(this.erros);
+		return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(erros);
 	}
 
 }
