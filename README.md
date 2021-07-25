@@ -19,14 +19,14 @@
 
 
 
-## :computer: Sobre
+<h2 id="sobre"> :computer: Sobre</h2>
 O projeto consiste em desenvolver uma API Rest para se comunicar com o front-end desenvolvido em "React" onde o usuario pode adicionar, pesquisar e ver vídeos.
 
 Projeto desenvolvido durante o <a href="https://github.com/alura-challenges/challenge-back-end">Alura-Challanges-Back-End</a>
 
 <br/>
 
-## :eyes: Requisitos
+<h2 id="requisitos"> :eyes: Requisitos</h2>
 <ul>
   <li><a href="https://www.oracle.com/br/java/technologies/javase-jdk11-downloads.html">Java 11</a></li>
   <li><a href="https://downloads.mariadb.org/">MYSQL</a></li>
@@ -34,7 +34,7 @@ Projeto desenvolvido durante o <a href="https://github.com/alura-challenges/chal
 
 <br/>
 
-## :man_technologist: Tecnologias
+<h2 id="tecnologias"> :man_technologist: Tecnologias</h2>
 <ul>
   <li><a href="">Java</a></li>
   <li><a href="">Mysql</a></li>
@@ -52,7 +52,7 @@ Projeto desenvolvido durante o <a href="https://github.com/alura-challenges/chal
 
 </br>
 
-## :book: Como Executar
+<h2 id="comoExecutar"> :book: Como Executar</h2>
 
 <ol>
   <li>Copiar o repositório para a máquina</li>
@@ -65,9 +65,12 @@ Projeto desenvolvido durante o <a href="https://github.com/alura-challenges/chal
 
 </br>
 
-## Consumindo a API
+<h2 id="consumir">:rocket: Consumindo a API</h2>
 Documentação feita utilizando o Postman.
-</br>
+
 Documantação: https://documenter.getpostman.com/view/12149762/TzsZrTno
 
+</br>
 
+<h2 id="autor">:boy: Autor</h2>
+Tatata, sobre eu...
