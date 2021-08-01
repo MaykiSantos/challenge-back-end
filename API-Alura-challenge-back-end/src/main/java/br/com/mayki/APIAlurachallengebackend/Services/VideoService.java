@@ -14,12 +14,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.mayki.APIAlurachallengebackend.Dto.VideoDto;
-import br.com.mayki.APIAlurachallengebackend.Entidade.Video;
-import br.com.mayki.APIAlurachallengebackend.Erros.ExceptionCampoInvalido;
-import br.com.mayki.APIAlurachallengebackend.Form.VideoForm;
-import br.com.mayki.APIAlurachallengebackend.Repository.CategoriaRepository;
-import br.com.mayki.APIAlurachallengebackend.Repository.VideoRepository;
+import br.com.mayki.APIAlurachallengebackend.Models.Entidade.Video;
+import br.com.mayki.APIAlurachallengebackend.Models.Repository.CategoriaRepository;
+import br.com.mayki.APIAlurachallengebackend.Models.Repository.VideoRepository;
+import br.com.mayki.APIAlurachallengebackend.Utilitarios.Erros.ExceptionCampoInvalido;
+import br.com.mayki.APIAlurachallengebackend.Views.Dto.VideoDto;
+import br.com.mayki.APIAlurachallengebackend.Views.Form.VideoForm;
 
 @Service
 public class VideoService {

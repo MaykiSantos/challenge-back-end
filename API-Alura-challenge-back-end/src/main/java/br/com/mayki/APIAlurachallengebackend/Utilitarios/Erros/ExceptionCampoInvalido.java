@@ -1,4 +1,4 @@
-package br.com.mayki.APIAlurachallengebackend.Erros;
+package br.com.mayki.APIAlurachallengebackend.Utilitarios.Erros;
 
 public class ExceptionCampoInvalido extends Throwable {
 

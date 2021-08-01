@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.mayki.APIAlurachallengebackend.Dto.CategoriaDto;
-import br.com.mayki.APIAlurachallengebackend.Dto.VideoDto;
-import br.com.mayki.APIAlurachallengebackend.Erros.ExceptionNaoModificado;
-import br.com.mayki.APIAlurachallengebackend.Erros.ExceptionRecursoNaoEncontrado;
-import br.com.mayki.APIAlurachallengebackend.Form.CategoriaForm;
 import br.com.mayki.APIAlurachallengebackend.Services.CategoriaService;
+import br.com.mayki.APIAlurachallengebackend.Utilitarios.Erros.ExceptionNaoModificado;
+import br.com.mayki.APIAlurachallengebackend.Utilitarios.Erros.ExceptionRecursoNaoEncontrado;
+import br.com.mayki.APIAlurachallengebackend.Views.Dto.CategoriaDto;
+import br.com.mayki.APIAlurachallengebackend.Views.Dto.VideoDto;
+import br.com.mayki.APIAlurachallengebackend.Views.Form.CategoriaForm;
 
 @RestController
 @RequestMapping("categorias")

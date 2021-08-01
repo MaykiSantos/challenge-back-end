@@ -1,11 +1,11 @@
-package br.com.mayki.APIAlurachallengebackend.Form;
+package br.com.mayki.APIAlurachallengebackend.Views.Form;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import br.com.mayki.APIAlurachallengebackend.Entidade.Categoria;
-import br.com.mayki.APIAlurachallengebackend.Repository.CategoriaRepository;
+import br.com.mayki.APIAlurachallengebackend.Models.Entidade.Categoria;
+import br.com.mayki.APIAlurachallengebackend.Models.Repository.CategoriaRepository;
 
 public class CategoriaForm {
 	

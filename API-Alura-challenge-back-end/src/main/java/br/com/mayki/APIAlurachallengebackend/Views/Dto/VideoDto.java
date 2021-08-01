@@ -1,9 +1,9 @@
-package br.com.mayki.APIAlurachallengebackend.Dto;
+package br.com.mayki.APIAlurachallengebackend.Views.Dto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.mayki.APIAlurachallengebackend.Entidade.Video;
+import br.com.mayki.APIAlurachallengebackend.Models.Entidade.Video;
 
 public class VideoDto {
 

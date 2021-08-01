@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.mayki.APIAlurachallengebackend.Dto.VideoDto;
-import br.com.mayki.APIAlurachallengebackend.Erros.ExceptionCampoInvalido;
-import br.com.mayki.APIAlurachallengebackend.Form.VideoForm;
 import br.com.mayki.APIAlurachallengebackend.Services.VideoService;
+import br.com.mayki.APIAlurachallengebackend.Utilitarios.Erros.ExceptionCampoInvalido;
+import br.com.mayki.APIAlurachallengebackend.Views.Dto.VideoDto;
+import br.com.mayki.APIAlurachallengebackend.Views.Form.VideoForm;
 
 @RestController
 @RequestMapping("/videos")

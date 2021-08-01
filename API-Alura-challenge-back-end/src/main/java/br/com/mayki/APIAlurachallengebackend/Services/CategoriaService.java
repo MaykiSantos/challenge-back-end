@@ -10,15 +10,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.mayki.APIAlurachallengebackend.Dto.CategoriaDto;
-import br.com.mayki.APIAlurachallengebackend.Dto.VideoDto;
-import br.com.mayki.APIAlurachallengebackend.Entidade.Categoria;
-import br.com.mayki.APIAlurachallengebackend.Entidade.Video;
-import br.com.mayki.APIAlurachallengebackend.Erros.ExceptionNaoModificado;
-import br.com.mayki.APIAlurachallengebackend.Erros.ExceptionRecursoNaoEncontrado;
-import br.com.mayki.APIAlurachallengebackend.Form.CategoriaForm;
-import br.com.mayki.APIAlurachallengebackend.Repository.CategoriaRepository;
-import br.com.mayki.APIAlurachallengebackend.Repository.VideoRepository;
+import br.com.mayki.APIAlurachallengebackend.Models.Entidade.Categoria;
+import br.com.mayki.APIAlurachallengebackend.Models.Entidade.Video;
+import br.com.mayki.APIAlurachallengebackend.Models.Repository.CategoriaRepository;
+import br.com.mayki.APIAlurachallengebackend.Models.Repository.VideoRepository;
+import br.com.mayki.APIAlurachallengebackend.Utilitarios.Erros.ExceptionNaoModificado;
+import br.com.mayki.APIAlurachallengebackend.Utilitarios.Erros.ExceptionRecursoNaoEncontrado;
+import br.com.mayki.APIAlurachallengebackend.Views.Dto.CategoriaDto;
+import br.com.mayki.APIAlurachallengebackend.Views.Dto.VideoDto;
+import br.com.mayki.APIAlurachallengebackend.Views.Form.CategoriaForm;
 
 @Service
 public class CategoriaService {

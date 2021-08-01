@@ -1,4 +1,4 @@
-package br.com.mayki.APIAlurachallengebackend.Utilitario;
+package br.com.mayki.APIAlurachallengebackend.Utilitarios;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import br.com.mayki.APIAlurachallengebackend.Erros.ExceptionCampoInvalido;
-import br.com.mayki.APIAlurachallengebackend.Erros.ExceptionNaoModificado;
-import br.com.mayki.APIAlurachallengebackend.Erros.ExceptionRecursoNaoEncontrado;
+import br.com.mayki.APIAlurachallengebackend.Utilitarios.Erros.ExceptionCampoInvalido;
+import br.com.mayki.APIAlurachallengebackend.Utilitarios.Erros.ExceptionNaoModificado;
+import br.com.mayki.APIAlurachallengebackend.Utilitarios.Erros.ExceptionRecursoNaoEncontrado;
 
 @RestControllerAdvice
 public class TrataErro {

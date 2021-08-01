@@ -1,9 +1,9 @@
-package br.com.mayki.APIAlurachallengebackend.Dto;
+package br.com.mayki.APIAlurachallengebackend.Views.Dto;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.mayki.APIAlurachallengebackend.Entidade.Categoria;
+import br.com.mayki.APIAlurachallengebackend.Models.Entidade.Categoria;
 
 public class CategoriaDto {
 

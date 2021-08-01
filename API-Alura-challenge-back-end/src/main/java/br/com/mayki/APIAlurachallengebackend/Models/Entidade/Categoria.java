@@ -1,4 +1,4 @@
-package br.com.mayki.APIAlurachallengebackend.Entidade;
+package br.com.mayki.APIAlurachallengebackend.Models.Entidade;
 
 import java.util.List;
 

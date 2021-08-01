@@ -1,4 +1,4 @@
-package br.com.mayki.APIAlurachallengebackend.Form;
+package br.com.mayki.APIAlurachallengebackend.Views.Form;
 
 import java.util.NoSuchElementException;
 
@@ -6,11 +6,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import br.com.mayki.APIAlurachallengebackend.Entidade.Categoria;
-import br.com.mayki.APIAlurachallengebackend.Entidade.Video;
-import br.com.mayki.APIAlurachallengebackend.Erros.ExceptionCampoInvalido;
-import br.com.mayki.APIAlurachallengebackend.Repository.CategoriaRepository;
-import br.com.mayki.APIAlurachallengebackend.Repository.VideoRepository;
+import br.com.mayki.APIAlurachallengebackend.Models.Entidade.Categoria;
+import br.com.mayki.APIAlurachallengebackend.Models.Entidade.Video;
+import br.com.mayki.APIAlurachallengebackend.Models.Repository.CategoriaRepository;
+import br.com.mayki.APIAlurachallengebackend.Models.Repository.VideoRepository;
+import br.com.mayki.APIAlurachallengebackend.Utilitarios.Erros.ExceptionCampoInvalido;
 
 public class VideoForm {
 
