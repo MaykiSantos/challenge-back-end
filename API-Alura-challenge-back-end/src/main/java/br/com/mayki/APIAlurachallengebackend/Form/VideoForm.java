@@ -3,6 +3,7 @@ package br.com.mayki.APIAlurachallengebackend.Form;
 import java.util.NoSuchElementException;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import br.com.mayki.APIAlurachallengebackend.Entidade.Categoria;
@@ -13,11 +14,11 @@ import br.com.mayki.APIAlurachallengebackend.Repository.VideoRepository;
 
 public class VideoForm {
 
-	@Size(max = 100) @NotBlank
+	@Size(max = 100) @NotBlank @NotNull
 	private String titulo;
 	@Size(max = 1000) @NotBlank
 	private String descricao;
-	@Size(max = 300) @NotBlank
+	@Size(max = 300) @NotBlank @NotNull
 	private String url;
 	private Long idCategoria;
 	

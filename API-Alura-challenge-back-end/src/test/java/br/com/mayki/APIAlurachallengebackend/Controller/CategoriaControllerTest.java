@@ -100,7 +100,7 @@ public class CategoriaControllerTest {
 	}
 	
 	@Test
-	public void deveriaRetornar404AoAtualizarUmaCategoriaComTituloInvalido() throws Exception {
+	public void deveriaRetornar406AoAtualizarUmaCategoriaComTituloInvalido() throws Exception {
 		URI uri = new URI("/categorias/3");
 
 		mockMvc.perform(MockMvcRequestBuilders.put(uri)
@@ -110,11 +110,11 @@ public class CategoriaControllerTest {
 						+ "    \"titulo\": \"\",\r\n"
 						+ "    \"cor\": \"#D13817\"\r\n"
 						+ "}"))
-				.andExpect(MockMvcResultMatchers.status().is(404));
+				.andExpect(MockMvcResultMatchers.status().is(406));
 	}
 	
 	@Test
-	public void deveriaRetornar404AoAtualizarUmaCategoriaComCorInvalido() throws Exception {
+	public void deveriaRetornar406AoAtualizarUmaCategoriaComCorInvalido() throws Exception {
 		URI uri = new URI("/categorias/3");
 
 		mockMvc.perform(MockMvcRequestBuilders.put(uri)
@@ -124,7 +124,7 @@ public class CategoriaControllerTest {
 						+ "    \"titulo\": \"terror\",\r\n"
 						+ "    \"cor\": \"#D13\"\r\n"
 						+ "}"))
-				.andExpect(MockMvcResultMatchers.status().is(404));
+				.andExpect(MockMvcResultMatchers.status().is(406));
 	}
 	
 

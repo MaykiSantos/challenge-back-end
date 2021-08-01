@@ -1,8 +1,6 @@
 package br.com.mayki.APIAlurachallengebackend.Controller;
 
-import java.net.URI;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -21,78 +19,47 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.mayki.APIAlurachallengebackend.Dto.CategoriaDto;
 import br.com.mayki.APIAlurachallengebackend.Dto.VideoDto;
-import br.com.mayki.APIAlurachallengebackend.Entidade.Categoria;
-import br.com.mayki.APIAlurachallengebackend.Entidade.Video;
 import br.com.mayki.APIAlurachallengebackend.Erros.ExceptionNaoModificado;
 import br.com.mayki.APIAlurachallengebackend.Erros.ExceptionRecursoNaoEncontrado;
 import br.com.mayki.APIAlurachallengebackend.Form.CategoriaForm;
-import br.com.mayki.APIAlurachallengebackend.Repository.CategoriaRepository;
-import br.com.mayki.APIAlurachallengebackend.Repository.VideoRepository;
+import br.com.mayki.APIAlurachallengebackend.Services.CategoriaService;
 
 @RestController
 @RequestMapping("categorias")
 public class CategoriaController {
 
 	@Autowired
-	CategoriaRepository categoriaRepository;
-
-	@Autowired
-	VideoRepository videoRepository;
+	CategoriaService categoriaService;
 
 	@GetMapping
 	public ResponseEntity<List<CategoriaDto>> listar() {
-		List<Categoria> lista = categoriaRepository.findAll();
-
-		return ResponseEntity.ok(CategoriaDto.paraListaDto(lista));
+		return categoriaService.listar();
 	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<CategoriaDto> buscar(@PathVariable Long id) throws ExceptionRecursoNaoEncontrado {
-		try {
-			Categoria categoria = categoriaRepository.findById(id).get();
-			return ResponseEntity.ok(CategoriaDto.paraDto(categoria));
-
-		} catch (NoSuchElementException e) {
-			throw new ExceptionRecursoNaoEncontrado("Não Encontrado");
-		}
+		return categoriaService.buscar(id);
 	}
 
 	@GetMapping("/{id}/videos")
 	public ResponseEntity<List<VideoDto>> buscarPorCategoria(@PathVariable Long id)
 			throws ExceptionRecursoNaoEncontrado {
-		List<Video> lista = videoRepository.findByCategoria_Id(id);
-		if (lista.isEmpty()) {
-			throw new ExceptionRecursoNaoEncontrado("Não Encontrado");
-		}
-		return ResponseEntity.ok(VideoDto.paraListaDto(lista));
+		return categoriaService.buscarPorCategoria(id);
 	}
 
 	@PostMapping
 	@Transactional
 	public ResponseEntity<CategoriaDto> adicionar(@RequestBody @Valid CategoriaForm categoriaForm,
 			UriComponentsBuilder uriComponents) {
-		Categoria categoria = categoriaForm.paraCategoria(categoriaRepository);
-		URI uri = uriComponents.path("/caregorias/{id}").build(categoria.getId());
-
-		return ResponseEntity.created(uri).body(CategoriaDto.paraDto(categoria));
+		return categoriaService.adicionar(categoriaForm, uriComponents);
 	}
 
 	@PutMapping("/{id}")
 	@Transactional
-	public ResponseEntity<CategoriaDto> editar(@PathVariable Long id, @RequestBody CategoriaForm categoriaForm)
+	public ResponseEntity<CategoriaDto> editar(@PathVariable Long id,
+			@RequestBody @Valid CategoriaForm categoriaForm)
 			throws ExceptionRecursoNaoEncontrado, ExceptionNaoModificado {
-		if (id == 1) {
-			throw new ExceptionNaoModificado("Recurso não pode ser Alterado pois faz parte das regras do sistema");
-		}
-
-		try {
-			Categoria categoria = categoriaRepository.findById(id).get();
-			categoriaForm.atualiza(categoria);
-
-			return ResponseEntity.ok(CategoriaDto.paraDto(categoria));
-		} catch (NoSuchElementException e) {
-			throw new ExceptionRecursoNaoEncontrado("Não Encontrado");
-		}
+		return categoriaService.editar(id, categoriaForm);
 	}
 
 	@DeleteMapping("/{id}")
@@ -100,24 +67,7 @@ public class CategoriaController {
 	public ResponseEntity<?> deletar(@PathVariable Long id)
 			throws ExceptionRecursoNaoEncontrado, ExceptionNaoModificado {
 
-		if (id == 1) {
-			throw new ExceptionNaoModificado("Recurso não pode ser deletado pois faz parte das regras do sistema");
-		}
-
-		try {
-			Categoria categoria = categoriaRepository.findById(id).get();
-			if (categoria.getVideo().size() != 0) {
-				Categoria livre = categoriaRepository.findById(1l).get();
-				List<Video> videos = categoria.getVideo();
-
-				videos.forEach(v -> v.setCategoria(livre));
-			}
-			categoriaRepository.delete(categoria);
-
-			return ResponseEntity.ok("Categoria excluida com sucesso");
-		} catch (NoSuchElementException e) {
-			throw new ExceptionRecursoNaoEncontrado("Recurso não Encontrado");
-		}
+		return categoriaService.deletar(id);
 	}
 
 }
