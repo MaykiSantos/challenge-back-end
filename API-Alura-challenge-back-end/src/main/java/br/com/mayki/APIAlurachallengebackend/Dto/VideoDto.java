@@ -8,15 +8,21 @@ import br.com.mayki.APIAlurachallengebackend.Entidade.Video;
 public class VideoDto {
 
 	private Long id;
+	private Long idCategoria;
 	private String titulo;
 	private String descricao;
 	private String url;
 	
-	public VideoDto(Long id, String titulo, String descricao, String url) {
+	public VideoDto(Long id, String titulo, String descricao, String url, Long idCategoria) {
 		this.id = id;
 		this.titulo = titulo;
 		this.descricao = descricao;
 		this.url = url;
+		this.idCategoria = idCategoria;
+	}
+
+	public Long getIdCategoria() {
+		return idCategoria;
 	}
 
 	public Long getId() {
@@ -39,14 +45,14 @@ public class VideoDto {
 		List<VideoDto> listaConvertida = new ArrayList<VideoDto>();
 		
 		lista.forEach((Video v)->{
-			listaConvertida.add(new VideoDto(v.getId(), v.getTitulo(), v.getDescricao(), v.getUrl()));
+			listaConvertida.add(new VideoDto(v.getId(), v.getTitulo(), v.getDescricao(), v.getUrl(), v.getCategoria().getId()));
 		});
 		
 		return listaConvertida;
 	}
 
 	public static VideoDto paraDto(Video v) {
-		return new VideoDto(v.getId(), v.getTitulo(), v.getDescricao(), v.getUrl());
+		return new VideoDto(v.getId(), v.getTitulo(), v.getDescricao(), v.getUrl(), v.getCategoria().getId());
 	}
 	
 	
