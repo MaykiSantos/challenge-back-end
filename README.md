@@ -53,7 +53,7 @@
 <h2 id="comoExecutar"> :book: Como Executar</h2>
 
 ### >Projeto Compilado
-1. Baixe o arquivo API_alura_challenge-V1.jar.
+1. Baixe o arquivo API_alura_challenge-V1.jar dentro da pasta API-Alura-challenge-back-end.
 2. Crie um banco de dados, um usurio e uma senha no Mysql.
 3. Inicie o terminal(CMD) do windows.
 4. Navege até o diretório onde você salvou o arquivo API_alura_challenge-V1.jar.
