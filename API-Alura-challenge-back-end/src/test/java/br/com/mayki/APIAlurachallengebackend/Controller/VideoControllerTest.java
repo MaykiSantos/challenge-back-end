@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -17,6 +18,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @SpringBootTest
 @AutoConfigureMockMvc
+@ActiveProfiles("test")
 class VideoControllerTest {
 	
 	@Autowired
@@ -96,13 +98,13 @@ class VideoControllerTest {
 	
 	@Test
 	public void deveriaRetornar200AoEditarVideoJaCadastrado() throws Exception {
-		URI uri = new URI("/videos/4");
+		URI uri = new URI("/videos/2");
 
 		mock.perform(MockMvcRequestBuilders.put(uri)
 				.accept(MediaType.APPLICATION_JSON)
 				.contentType(MediaType.APPLICATION_JSON)
 				.content("{\r\n"
-						+ "    \"idCategoria\": \"2\",\r\n"
+						+ "    \"idCategoria\": \"3\",\r\n"
 						+ "    \"titulo\": \"Valor do Titulo Alterado\",\r\n"
 						+ "    \"descricao\": \"O mercado de tecnologia tem crescido bastante, diversas profissões foram surgindo e com elas várias dúvidas. É melhor ser especialista ou generalista? Como se tornar o(a) profissional que as empresas estão procurando? Paulo Silveira responde!\",\r\n"
 						+ "    \"url\": \"https://www.youtube.com/watch?v=AG8cYHCbGcg&t=34s&ab_channel=AluraCursosOnline\"\r\n"

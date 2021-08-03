@@ -3,6 +3,7 @@ package br.com.mayki.APIAlurachallengebackend.Services;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,6 +20,7 @@ import br.com.mayki.APIAlurachallengebackend.Views.Dto.AutenticacaoDto;
 import br.com.mayki.APIAlurachallengebackend.Views.Form.AutenticacaoForm;
 
 @Service
+@Profile("prod")
 public class AutenticacaoUsuarioService implements UserDetailsService {
 
 	@Autowired
@@ -39,6 +41,7 @@ public class AutenticacaoUsuarioService implements UserDetailsService {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public ResponseEntity<AutenticacaoDto> geraToken(AutenticacaoForm form) throws ExceptionRecursoNaoEncontrado {
 		try {
 			UsernamePasswordAuthenticationToken dadosLogin = new UsernamePasswordAuthenticationToken(form.getEmail(),

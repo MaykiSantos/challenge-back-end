@@ -3,6 +3,7 @@ package br.com.mayki.APIAlurachallengebackend.Controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ import br.com.mayki.APIAlurachallengebackend.Views.Form.AutenticacaoForm;
 
 @RestController
 @RequestMapping("/auth")
+@Profile("prod")
 public class AutenticacaoController {
 
 	@Autowired

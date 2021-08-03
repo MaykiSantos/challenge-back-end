@@ -3,17 +3,13 @@ package br.com.mayki.APIAlurachallengebackend.Services;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import br.com.mayki.APIAlurachallengebackend.Models.Entidade.Usuario;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.MalformedJwtException;
-import io.jsonwebtoken.UnsupportedJwtException;
 import io.jsonwebtoken.security.Keys;
-import io.jsonwebtoken.security.SignatureException;
-import io.jsonwebtoken.security.WeakKeyException;
 
 @Service
 public class TokenService {
@@ -38,6 +34,7 @@ public class TokenService {
 		return token;
 	}
 
+	@SuppressWarnings("unused")
 	public boolean validaToken(String token) {
 		try {
 			Jws<Claims> claimsJws = Jwts.parserBuilder()
