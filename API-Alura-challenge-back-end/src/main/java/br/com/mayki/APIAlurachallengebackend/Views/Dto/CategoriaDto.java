@@ -3,6 +3,8 @@ package br.com.mayki.APIAlurachallengebackend.Views.Dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+
 import br.com.mayki.APIAlurachallengebackend.Models.Entidade.Categoria;
 
 public class CategoriaDto {
@@ -36,6 +38,10 @@ public class CategoriaDto {
 
 	public static CategoriaDto paraDto(Categoria c) {
 		return new CategoriaDto(c.getId(), c.getTitulo(), c.getCor());
+	}
+
+	public static Page<CategoriaDto> paraPageDto(Page<Categoria> lista) {
+		return lista.map(c -> new CategoriaDto(c.getId(), c.getTitulo(), c.getCor()));
 	}
 
 }

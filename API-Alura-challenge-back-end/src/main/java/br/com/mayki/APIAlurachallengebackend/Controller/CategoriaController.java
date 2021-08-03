@@ -1,11 +1,12 @@
 package br.com.mayki.APIAlurachallengebackend.Controller;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,8 +33,8 @@ public class CategoriaController {
 	CategoriaService categoriaService;
 
 	@GetMapping
-	public ResponseEntity<List<CategoriaDto>> listar() {
-		return categoriaService.listar();
+	public ResponseEntity<Page<CategoriaDto>> listar(@PageableDefault(page = 0, size=5) Pageable pageable) {
+		return categoriaService.listar(pageable);
 	}
 
 	@GetMapping("/{id}")
@@ -42,9 +43,9 @@ public class CategoriaController {
 	}
 
 	@GetMapping("/{id}/videos")
-	public ResponseEntity<List<VideoDto>> buscarPorCategoria(@PathVariable Long id)
+	public ResponseEntity<Page<VideoDto>> buscarPorCategoria(@PathVariable Long id, @PageableDefault(page = 0, size=5) Pageable pageable)
 			throws ExceptionRecursoNaoEncontrado {
-		return categoriaService.buscarPorCategoria(id);
+		return categoriaService.buscarPorCategoria(id, pageable);
 	}
 
 	@PostMapping

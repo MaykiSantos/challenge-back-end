@@ -1,10 +1,14 @@
 package br.com.mayki.APIAlurachallengebackend.Controller;
 
+
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -31,8 +35,13 @@ public class VideoController {
 	VideoService videoService;
 	
 	@GetMapping
-	public ResponseEntity<List<VideoDto>> listar(@RequestParam(required = false) String search){
-		return videoService.listar(search);
+	public ResponseEntity<Page<VideoDto>> listar(@PageableDefault(page = 0, size=5) Pageable pageable, @RequestParam(required = false) String search){
+		return videoService.listar(search, pageable);
+	}
+	
+	@GetMapping("/free")
+	public ResponseEntity<List<VideoDto>> listarFree(){
+		return videoService.listarFree();
 	}
 	
 	@GetMapping("/{id}")

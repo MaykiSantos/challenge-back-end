@@ -3,6 +3,8 @@ package br.com.mayki.APIAlurachallengebackend.Views.Dto;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
 import br.com.mayki.APIAlurachallengebackend.Models.Entidade.Video;
 
 public class VideoDto {
@@ -53,6 +55,10 @@ public class VideoDto {
 
 	public static VideoDto paraDto(Video v) {
 		return new VideoDto(v.getId(), v.getTitulo(), v.getDescricao(), v.getUrl(), v.getCategoria().getId());
+	}
+
+	public static Page<VideoDto> paraPageDto(Page<Video> lista) {
+		return lista.map(v -> new VideoDto(v.getId(), v.getTitulo(), v.getDescricao(), v.getUrl(), v.getCategoria().getId()));
 	}
 	
 	

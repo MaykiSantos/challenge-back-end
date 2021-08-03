@@ -1,3 +1,15 @@
+INSERT INTO `perfil` (`id`, `nome`) VALUES 
+(NULL, 'PADRAO'), 
+(NULL, 'GESTOR');
+
+INSERT INTO `usuario` (`id`, `email`, `senha`) VALUES 
+(NULL, 'teste@gmail.com', '$2a$10$4gYmDdHsJmrTbBlW8y9.O.EbOUmhtk5QzTwX.ovS//EP64XutdZJm'), 
+(NULL, 'challengebackend@alura.com', '$2a$10$4gYmDdHsJmrTbBlW8y9.O.EbOUmhtk5QzTwX.ovS//EP64XutdZJm');
+
+INSERT INTO `perfil_usuarios` (`perfil_id`, `usuarios_id`) VALUES 
+('1', '2'), 
+('1', '1');
+
 INSERT INTO `categoria` (`id`, `cor`, `titulo`) VALUES
 (NULL, '#FFFFFF', 'LIVRE'),
 (NULL, '#FFFF00', 'PROGRAMACAO');

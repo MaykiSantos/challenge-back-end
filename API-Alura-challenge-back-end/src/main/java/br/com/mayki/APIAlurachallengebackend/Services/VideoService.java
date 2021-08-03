@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.ExampleMatcher.StringMatcher;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -30,19 +32,19 @@ public class VideoService {
 	@Autowired
 	CategoriaRepository categoriaRepository;
 
-	public ResponseEntity<List<VideoDto>> listar(String search) {
-		List<Video> lista = null;
+	public ResponseEntity<Page<VideoDto>> listar(String search, Pageable pageable) {
+		Page<Video> lista = null;
 		if(search == null) {
-			lista = videoRepository.findAll();
+			lista = videoRepository.findAll(pageable);
 		}else {
 			Video video = new Video();
 			video.setTitulo(search);
 			
 			ExampleMatcher matcher = ExampleMatcher.matchingAny().withIgnoreCase().withStringMatcher(StringMatcher.CONTAINING);
 			
-			lista = videoRepository.findAll(Example.of(video, matcher));
+			lista = videoRepository.findAll(Example.of(video, matcher), pageable);
 		}
-		return ResponseEntity.ok(VideoDto.paraListaDto(lista));
+		return ResponseEntity.ok(VideoDto.paraPageDto(lista));
 	}
 
 	public ResponseEntity<VideoDto> buscar(Long id) throws ExceptionCampoInvalido {
@@ -79,5 +81,12 @@ public class VideoService {
 		} catch (NoSuchElementException e) {
 			throw new ExceptionCampoInvalido("item não encontrado");
 		}
+	}
+
+	public ResponseEntity<List<VideoDto>> listarFree() {
+		//Retorna os ultimos 10 videos cadastrados
+		List<Video> listaFree = videoRepository.findFree(10);
+		
+		return ResponseEntity.ok(VideoDto.paraListaDto(listaFree));
 	}
 }

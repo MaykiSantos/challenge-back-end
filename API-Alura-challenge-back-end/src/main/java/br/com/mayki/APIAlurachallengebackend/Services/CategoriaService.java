@@ -6,6 +6,8 @@ import java.util.NoSuchElementException;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -29,10 +31,10 @@ public class CategoriaService {
 	@Autowired
 	VideoRepository videoRepository;
 
-	public ResponseEntity<List<CategoriaDto>> listar() {
-		List<Categoria> lista = categoriaRepository.findAll();
+	public ResponseEntity<Page<CategoriaDto>> listar(Pageable pageable) {
+		Page<Categoria> lista = categoriaRepository.findAll(pageable);
 
-		return ResponseEntity.ok(CategoriaDto.paraListaDto(lista));
+		return ResponseEntity.ok(CategoriaDto.paraPageDto(lista));
 	}
 
 	public ResponseEntity<CategoriaDto> buscar(Long id) throws ExceptionRecursoNaoEncontrado {
@@ -45,12 +47,12 @@ public class CategoriaService {
 		}
 	}
 
-	public ResponseEntity<List<VideoDto>> buscarPorCategoria(Long id) throws ExceptionRecursoNaoEncontrado {
-		List<Video> lista = videoRepository.findByCategoria_Id(id);
+	public ResponseEntity<Page<VideoDto>> buscarPorCategoria(Long id, Pageable pageable) throws ExceptionRecursoNaoEncontrado {
+		Page<Video> lista = videoRepository.findByCategoria_Id(id, pageable);
 		if (lista.isEmpty()) {
 			throw new ExceptionRecursoNaoEncontrado("Não Encontrado");
 		}
-		return ResponseEntity.ok(VideoDto.paraListaDto(lista));
+		return ResponseEntity.ok(VideoDto.paraPageDto(lista));
 	}
 
 	public ResponseEntity<CategoriaDto> adicionar(CategoriaForm categoriaForm,
