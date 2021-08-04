@@ -95,7 +95,7 @@ OBS: Quando o terminal for fechado a API ternimará sua execução.
 <div>
 	<h2 id="consumir">:rocket: Consumindo a API</h2>
 	<p>
-		A API está disponível em http://app.meus-projetos.com:8083/ conforma a documentação. </br>
+		A API está disponível em http://api-alura-challenge.meus-projetos.com/V1 conforma a documentação. </br>
 		Documantação: https://documenter.getpostman.com/view/12149762/TzsZrTno </br>
 		<b>usuario e senha para autenticação</b></br>
 		email: challengebackend@alura.com</br>
