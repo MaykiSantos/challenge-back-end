@@ -53,8 +53,31 @@
 <h2 id="comoExecutar"> :book: Como Executar</h2>
 
 ### >Projeto Compilado
-Descrever posteriormente...
-	
+1. Baixe o arquivo API_alura_challenge-V1.jar dentro da pasta API-Alura-challenge-back-end.
+2. Crie um banco de dados, um usurio e uma senha no Mysql.
+3. Inicie o terminal(CMD) do windows.
+4. Navege até o diretório onde você salvou o arquivo API_alura_challenge-V1.jar.
+5. Execute o seguinte comando.
+>java -jar -Dspring.profiles.active=prod -DDB_NOME="**valorAqui**" -DDB_URL="**valorAqui**" -DDB_USUARIO="**valorAqui**" -DDB_SENHA="**valorAqui**" -DSERVER_PORT=**valorAqui** -DAPP_SENHA="**valorAqui**" -DDURACAO_TOKEN=**valorAqui** API_alura_challenge-V1.jar
+
+Os valores marcados como **valorAqui** devem ser substituidos seguindo a seguinte tabela:
+
+Valor | Descrição
+------|---------
+DDB_NOME | nome do banco de dados utilizado pela api
+DDB_URL | url de acesso ao banco de dados
+DDB_USUARIO | usuario de acesso ao banco de dados
+DDB_SENHA | senha do usuario
+DSERVER_PORT | define a porta onde a aplicação irá rodar
+DAPP_SENHA | chave secreta para criação dos tokens de acesso
+DDURACAO_TOKEN | tempo de duração dos tokens de acesso. Esse valor deve ser passado em milissegundos. Ex: 3600000 = 1hora
+
+**O código final deve ser similar a este:**
+>java -jar -Dspring.profiles.active=prod -DDB_NOME="**api-alura**" -DDB_URL="**jdbc:mysql://localhost:3306/api-alura**" -DDB_USUARIO="**UserAPIAlura**" -DDB_SENHA="**S48wPdarFlnAWAOp3g**" -DSERVER_PORT=**8083** -DAPP_SENHA="**qMNv8UJqLg6**" -DDURACAO_TOKEN=**86400000** API_alura_challenge-V1.jar
+
+OBS: Quando o terminal for fechado a API ternimará sua execução.
+
+
 ### >Execução pela IDE eclipse
 
 1. Copie o repositório para a sua máquina.
@@ -72,7 +95,10 @@ Descrever posteriormente...
 <div>
 	<h2 id="consumir">:rocket: Consumindo a API</h2>
 	<p>
-		Documentação feita utilizando o Postman.</br>
-		Documantação: https://documenter.getpostman.com/view/12149762/TzsZrTno
+		A API está disponível em http://api-alura-challenge.meus-projetos.com/V1 conforma a documentação. </br>
+		Documantação: https://documenter.getpostman.com/view/12149762/TzsZrTno </br>
+		<b>usuario e senha para autenticação</b></br>
+		email: challengebackend@alura.com</br>
+		senha: alura123
 	</p>
 </div>
