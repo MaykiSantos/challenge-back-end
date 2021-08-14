@@ -10,7 +10,7 @@
 		<a href="#comoExecutar">Como Executar</a> •
 		<a href="#consumir">Consumindo a API</a>
 	</p>
-	<h2 align="center">🚧  Em construção...  🚧</h2>
+	
 </div>
 
 <div>
